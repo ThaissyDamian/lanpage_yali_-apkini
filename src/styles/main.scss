@@ -1,4 +1,86 @@
-$bgColor :rgb(0, 183, 255);
+@use 'header';
+@use 'cast';
+@use 'variaveis';
+@use 'footer';
+@use 'trailler';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 body {
-    background-color: $bgColor;
+    background-color:variaveis.$corDeFundoPrincipal;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    background-color: variaveis.$corDeFundoSecundaria;
+
+}
+    
+
+    section.logo {
+        margin-top: 80px; 
+    }
+    
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px ;
+    color:variaveis.$corTextoPrincipal;
+}
+
+@mixin title($fontSize: 28px) {
+    @include text($fontSize);
+    line-height: $fontSize + 10px ;
+    color:variaveis.$corTextoSecundario;
+}
+
+.text--big {
+    @include text(18px);
+}
+
+.text {
+    @include text;
+}
+
+.title--big {
+    @include title(44px);
+}
+
+.title {
+    @include title;
+}
+
+@media (max-width: 768px) {
+    .personagens table {
+        font-size: 0.9rem; // Reduz o tamanho da fonte para melhor exibição
+    }
+
+    .personagens img {
+        max-width: 120px; // Ajusta as imagens para telas menores
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .casting {
+        font-size: 0.8rem;
+    }
+
+    .casting img {
+        max-width: 100px;
+        height: 100px;
+    }
+
+    .casting__list {
+        padding: 10px; // Reduz o espaçamento interno
+    }
 }

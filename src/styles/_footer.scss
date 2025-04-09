@@ -1,0 +1,29 @@
+@use 'variaveis';
+
+footer {
+    background-color: variaveis.$corDeFundoSecundaria;
+    color: variaveis.$corTextoSecundario;
+    text-align: center;
+    padding: 24px;
+}
+
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+    
+}
+
+.social-media li img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+    }
+
+    .social-media li img:hover {
+    transform: scale(1.2);
+    }
