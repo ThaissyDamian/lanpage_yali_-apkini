@@ -23,64 +23,87 @@ body {
     z-index: 1000; 
     background-color: variaveis.$corDeFundoSecundaria;
 
+    @media (max-width: 1024px) {
+        padding: 10px; 
+    }
+    
+    @media (max-width: 768px) {
+        position: relative; 
+        padding: 8px;
+    }
+
 }
     
-
     section.logo {
-        margin-top: 80px; 
+        margin-top: 40px;
+    
+        @media (max-width: 1024px) {
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            margin-top: 10px;
+        }
+    
     }
     
 
 @mixin text($fontSize: 16px) {
     font-size: $fontSize;
-    line-height: $fontSize + 10px ;
+    line-height: calc(#{$fontSize} + 10px);
     color:variaveis.$corTextoPrincipal;
 }
 
 @mixin title($fontSize: 28px) {
     @include text($fontSize);
-    line-height: $fontSize + 10px ;
+    line-height: calc(#{$fontSize} + 10px);
     color:variaveis.$corTextoSecundario;
 }
 
 .text--big {
     @include text(18px);
+
+    @media (max-width: 1024px) {
+        @include text(16px);
+    }
+
+    @media (max-width: 768px) {
+        @include text(14px);
+    }
 }
 
 .text {
     @include text;
+
+    @media (max-width: 1024px) {
+        @include text(14px);
+    }
+
+    @media (max-width: 768px) {
+        @include text(12px);
+    }
 }
 
 .title--big {
     @include title(44px);
+
+    @media (max-width: 1024px) {
+        @include title(36px);
+    }
+
+    @media (max-width: 768px) {
+        @include title(28px);
+    }
 }
 
 .title {
     @include title;
-}
 
-@media (max-width: 768px) {
-    .personagens table {
-        font-size: 0.9rem; // Reduz o tamanho da fonte para melhor exibição
+    @media (max-width: 1024px) {
+        @include title(32px);
     }
 
-    .personagens img {
-        max-width: 120px; // Ajusta as imagens para telas menores
-        height: 120px;
-    }
-}
-
-@media (max-width: 480px) {
-    .casting {
-        font-size: 0.8rem;
-    }
-
-    .casting img {
-        max-width: 100px;
-        height: 100px;
-    }
-
-    .casting__list {
-        padding: 10px; // Reduz o espaçamento interno
+    @media (max-width: 768px) {
+        @include title(24px);
     }
 }
